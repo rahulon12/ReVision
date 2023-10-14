@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SinglePlayerGameView: View {
     @ObservedObject var gameModel: GameModel
+    @State private var location: String = ""
     
     var body: some View {
         VStack {
@@ -17,7 +18,7 @@ struct SinglePlayerGameView: View {
             Text("Index: \(gameModel.currentImageSet.correctImageIndex)")
             
             if gameModel.currentGameState == .inProgress {
-                Text("Location: \(gameModel.currentImageSet.correctLocation)")
+                Text("Location: \(location)")
                 
                 LazyVGrid(columns: [.init(.fixed(200)), .init(.fixed(200))]) {
                     ForEach(gameModel.currentImageSet.imageSet) { userImage in
@@ -41,8 +42,15 @@ struct SinglePlayerGameView: View {
             }
         }
         .padding()
+        .onAppear {
+            gameModel.currentImageSet.imageSet[gameModel.currentImageSet.correctImageIndex].assetData.location?.lookUpPlacemarkName {
+                location = $0?.name ?? "unknown"
+            }
+        }
         .onChange(of: gameModel.currentImageSet) { newSet in
-            print("currently showing: \(newSet)")
+            gameModel.currentImageSet.imageSet[gameModel.currentImageSet.correctImageIndex].assetData.location?.lookUpPlacemarkName {
+                location = $0?.name ?? "unknown"
+            }
         }
     }
 }

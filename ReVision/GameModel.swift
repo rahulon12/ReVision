@@ -16,8 +16,13 @@ class GameModel: ObservableObject, Identifiable {
         let imageSet: [ImageModel.UserImage]
         let correctImageIndex: Int
         
-        var correctLocation: String {
-            imageSet[correctImageIndex].assetData.location?.description ?? "Unknown Location"
+        func correctLocation() -> String {
+            var name = ""
+            imageSet[correctImageIndex].assetData.location?.lookUpPlacemarkName {
+                name = $0?.name ?? "unknown"
+            }
+            
+            return name
         }
     }
     
@@ -76,8 +81,15 @@ class GameModel: ObservableObject, Identifiable {
         var shuffledImages = allImages.shuffled()
         while !shuffledImages.isEmpty {
             let imagesInSet = shuffledImages.prefix(Self.numberOfImagesInASet)
-            let imageSet = ImageSet(imageSet: imagesInSet.shuffled(), correctImageIndex: Int.random(in: 0..<imagesInSet.count))
+            var imageSet = ImageSet(imageSet: imagesInSet.shuffled(), correctImageIndex: Int.random(in: 0..<imagesInSet.count))
             if !imagesInSet.isEmpty {
+//                var name = ""
+//                DispatchQueue.main.async {
+//                    imageSet.imageSet[imageSet.correctImageIndex].assetData.location?.lookUpPlacemarkName {
+//                        name = $0?.name ?? "unknown"
+//                    }
+//                    imageSet.location = name
+//                }
                 imageSets.append(imageSet)
                 print("correct index: \(imageSet.correctImageIndex)")
             }
