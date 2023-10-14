@@ -20,21 +20,22 @@ struct SinglePlayerGameView: View {
             if gameModel.currentGameState == .inProgress {
                 Text("Location: \(location)")
                 
-                LazyVGrid(columns: [.init(.fixed(200)), .init(.fixed(200))]) {
-                    ForEach(gameModel.currentImageSet.imageSet) { userImage in
-                        Image(uiImage: userImage.image)
-                            .resizable()
-                            .clipShape(RoundedRectangle(cornerRadius: 8.0))
-                            .frame(width: 200, height: 200)
-                            .overlay {
-                                Text("\(gameModel.currentImageSet.imageSet.firstIndex(of: userImage) ?? 0)")
-                            }
-                            .onTapGesture {
-                                print("tapped index \(gameModel.currentImageSet.imageSet.firstIndex(of: userImage))")
-                                gameModel.didSelectImage(userImage)
-                            }
-                    }
-                }
+//                LazyVGrid(columns: [.init(.fixed(200)), .init(.fixed(200))]) {
+//                    ForEach(gameModel.currentImageSet.imageSet) { userImage in
+//                        Image(uiImage: userImage.image)
+//                            .resizable()
+//                            .clipShape(RoundedRectangle(cornerRadius: 8.0))
+//                            .frame(width: 200, height: 200)
+//                            .overlay {
+//                                Text("\(gameModel.currentImageSet.imageSet.firstIndex(of: userImage) ?? 0)")
+//                            }
+//                            .onTapGesture {
+//                                print("tapped index \(gameModel.currentImageSet.imageSet.firstIndex(of: userImage))")
+//                                gameModel.didSelectImage(userImage)
+//                            }
+//                    }
+//                }
+                ARGameView(gameModel: gameModel)
             }
             
             if gameModel.currentGameState == .notStarted {

@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color("Background")
+                AnimatedGradient()
                     .edgesIgnoringSafeArea(.all)
                 VStack {
                     Image("Logo")
