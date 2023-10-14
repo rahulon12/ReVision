@@ -24,12 +24,15 @@ class ImageModel: ObservableObject {
     @Published var currentImages: [UserImage] = []
     @Published var currentImageSelection: [PhotosPickerItem] = [] {
         didSet {
+            doneAddingImages = false
             currentImages = []
             currentImageSelection.forEach({ item in
                 let _ = loadTransferable(from: item)
             })
+            doneAddingImages = true
         }
     }
+    @Published var doneAddingImages = false
         
     private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
         return imageSelection.loadTransferable(type: Data.self) { result in
