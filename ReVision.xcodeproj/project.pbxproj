@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F5970A42ADA3A3B00B8151D /* ModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5970A32ADA3A3B00B8151D /* ModeView.swift */; };
+		4F5970A62ADA3C5600B8151D /* SinglePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5970A52ADA3C5600B8151D /* SinglePlayerView.swift */; };
 		B7DA3B4D2ADA00BD000D5F34 /* ReVisionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA3B4C2ADA00BD000D5F34 /* ReVisionApp.swift */; };
 		B7DA3B4F2ADA00BD000D5F34 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA3B4E2ADA00BD000D5F34 /* ContentView.swift */; };
 		B7DA3B512ADA00BF000D5F34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7DA3B502ADA00BF000D5F34 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F5970A32ADA3A3B00B8151D /* ModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeView.swift; sourceTree = "<group>"; };
+		4F5970A52ADA3C5600B8151D /* SinglePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerView.swift; sourceTree = "<group>"; };
 		B7DA3B492ADA00BD000D5F34 /* ReVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7DA3B4C2ADA00BD000D5F34 /* ReVisionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReVisionApp.swift; sourceTree = "<group>"; };
 		B7DA3B4E2ADA00BD000D5F34 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 			children = (
 				B7DA3B4C2ADA00BD000D5F34 /* ReVisionApp.swift */,
 				B7DA3B4E2ADA00BD000D5F34 /* ContentView.swift */,
+				4F5970A32ADA3A3B00B8151D /* ModeView.swift */,
+				4F5970A52ADA3C5600B8151D /* SinglePlayerView.swift */,
 				B7DA3B652ADA2BE2000D5F34 /* SinglePlayerGameView.swift */,
 				B7DA3B612ADA064F000D5F34 /* ImageModel.swift */,
 				B7DA3B5F2ADA038C000D5F34 /* PhotosSelector.swift */,
@@ -157,8 +163,10 @@
 			files = (
 				B7DA3B592ADA00BF000D5F34 /* ReVision.xcdatamodeld in Sources */,
 				B7DA3B662ADA2BE2000D5F34 /* SinglePlayerGameView.swift in Sources */,
+				4F5970A42ADA3A3B00B8151D /* ModeView.swift in Sources */,
 				B7DA3B622ADA064F000D5F34 /* ImageModel.swift in Sources */,
 				B7DA3B562ADA00BF000D5F34 /* Persistence.swift in Sources */,
+				4F5970A62ADA3C5600B8151D /* SinglePlayerView.swift in Sources */,
 				B7DA3B602ADA038C000D5F34 /* PhotosSelector.swift in Sources */,
 				B7DA3B4F2ADA00BD000D5F34 /* ContentView.swift in Sources */,
 				B7DA3B642ADA20D5000D5F34 /* GameModel.swift in Sources */,
