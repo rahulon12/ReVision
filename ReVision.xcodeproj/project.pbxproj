@@ -13,6 +13,8 @@
 		B7DA3B542ADA00BF000D5F34 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7DA3B532ADA00BF000D5F34 /* Preview Assets.xcassets */; };
 		B7DA3B562ADA00BF000D5F34 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA3B552ADA00BF000D5F34 /* Persistence.swift */; };
 		B7DA3B592ADA00BF000D5F34 /* ReVision.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B7DA3B572ADA00BF000D5F34 /* ReVision.xcdatamodeld */; };
+		B7DA3B602ADA038C000D5F34 /* PhotosSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA3B5F2ADA038C000D5F34 /* PhotosSelector.swift */; };
+		B7DA3B622ADA064F000D5F34 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA3B612ADA064F000D5F34 /* ImageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		B7DA3B532ADA00BF000D5F34 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B7DA3B552ADA00BF000D5F34 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B7DA3B582ADA00BF000D5F34 /* ReVision.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ReVision.xcdatamodel; sourceTree = "<group>"; };
+		B7DA3B5F2ADA038C000D5F34 /* PhotosSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosSelector.swift; sourceTree = "<group>"; };
+		B7DA3B612ADA064F000D5F34 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 			children = (
 				B7DA3B4C2ADA00BD000D5F34 /* ReVisionApp.swift */,
 				B7DA3B4E2ADA00BD000D5F34 /* ContentView.swift */,
+				B7DA3B612ADA064F000D5F34 /* ImageModel.swift */,
+				B7DA3B5F2ADA038C000D5F34 /* PhotosSelector.swift */,
 				B7DA3B502ADA00BF000D5F34 /* Assets.xcassets */,
 				B7DA3B552ADA00BF000D5F34 /* Persistence.swift */,
 				B7DA3B572ADA00BF000D5F34 /* ReVision.xcdatamodeld */,
@@ -144,7 +150,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7DA3B592ADA00BF000D5F34 /* ReVision.xcdatamodeld in Sources */,
+				B7DA3B622ADA064F000D5F34 /* ImageModel.swift in Sources */,
 				B7DA3B562ADA00BF000D5F34 /* Persistence.swift in Sources */,
+				B7DA3B602ADA038C000D5F34 /* PhotosSelector.swift in Sources */,
 				B7DA3B4F2ADA00BD000D5F34 /* ContentView.swift in Sources */,
 				B7DA3B4D2ADA00BD000D5F34 /* ReVisionApp.swift in Sources */,
 			);
@@ -283,11 +291,13 @@
 				DEVELOPMENT_TEAM = 6MTCHYNPAT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Using Photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,11 +322,13 @@
 				DEVELOPMENT_TEAM = 6MTCHYNPAT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Using Photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
