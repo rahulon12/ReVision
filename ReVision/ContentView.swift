@@ -10,7 +10,27 @@ import CoreData
 
 struct ContentView: View {
     var body: some View {
-        PhotosSelector()
+        NavigationView {
+            ZStack {
+                Color("Background")
+                    .edgesIgnoringSafeArea(.all)
+                VStack {
+                    Image("Logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300)
+                    NavigationLink(destination: PhotosSelector()) {
+                        Text("Play Game")
+                            .frame(width: 300, height:60)
+                            .background(Color.black)
+                            .foregroundColor(Color.white)
+                            .cornerRadius(10)
+                            .bold()
+                    }
+                }
+            }
+        }
+//        PhotosSelector()
     }
 }
 
