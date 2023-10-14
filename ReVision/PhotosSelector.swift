@@ -10,29 +10,19 @@ import PhotosUI
 
 struct PhotosSelector: View {
     @ObservedObject var viewModel: ImageModel = ImageModel()
+    @State private var gameModel: GameModel?
     
     var body: some View {
         VStack {
             PhotosPicker(selection: $viewModel.currentImageSelection, matching: .images, photoLibrary: .shared()) {
                 Text("Select Photos")
             }
-            
-            ForEach(viewModel.currentImages) { image in
-                Image(uiImage: image.image)
-                    .resizable()
-                    .frame(width: 250, height: 250)
-                    .clipShape(RoundedRectangle(cornerRadius: 8.0))
-                    .overlay(alignment: .bottom) {
-                        GeometryReader { geo in
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 8.0)
-                                    .fill(.ultraThinMaterial)
-                                Text("\(image.assetData.creationDate?.description ?? "")")
-                            }
-                            .frame(width: geo.size.width - 20, height: 20)
-                        }
-                    }
-            }
+        }
+        .onChange(of: viewModel.currentImages) { newVal in
+            gameModel = GameModel(images: newVal)
+        }
+        .fullScreenCover(item: $gameModel) { gameModel in
+            SinglePlayerGameView(gameModel: gameModel)
         }
     }
 }

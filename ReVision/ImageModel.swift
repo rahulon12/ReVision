@@ -11,6 +11,15 @@ import CoreTransferable
 
 @MainActor
 class ImageModel: ObservableObject {
+    public struct UserImage: Identifiable, Equatable, Hashable {
+        let id: String
+        let image: UIImage
+        let assetData: PHAsset
+        
+        static func == (lhs: UserImage, rhs: UserImage) -> Bool {
+            lhs.id == rhs.id
+        }
+    }
     
     @Published var currentImages: [UserImage] = []
     @Published var currentImageSelection: [PhotosPickerItem] = [] {
@@ -21,13 +30,7 @@ class ImageModel: ObservableObject {
             })
         }
     }
-    
-    struct UserImage: Identifiable {
-        let id: String
-        let image: UIImage
-        let assetData: PHAsset
-    }
-    
+        
     private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
         return imageSelection.loadTransferable(type: Data.self) { result in
             DispatchQueue.main.async {
