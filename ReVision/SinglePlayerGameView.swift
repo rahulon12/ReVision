@@ -9,7 +9,11 @@ import SwiftUI
 
 struct SinglePlayerGameView: View {
     @ObservedObject var gameModel: GameModel
+    @Binding var showingView: Bool
     @State private var location: String = ""
+    @State private var showTimeOutAlert = false
+    @State private var showGameOverAlert = false
+    @State private var showGameWonAlert = false
     
     var body: some View {
         VStack(spacing: 36) {
@@ -67,6 +71,30 @@ struct SinglePlayerGameView: View {
             gameModel.currentImageSet.imageSet[gameModel.currentImageSet.correctImageIndex].assetData.location?.lookUpPlacemarkName {
                 location = $0?.name ?? "unknown"
             }
+        }
+        .onChange(of: gameModel.currentGameState) { newState in
+            if newState == .timeOut {
+                showTimeOutAlert = true
+            } else if newState == .lost {
+                showGameOverAlert = true
+            } else if newState == .won {
+                showGameWonAlert = true
+            }
+        }
+        .alert("Time Out", isPresented: $showTimeOutAlert) {
+            Button("Done") { showingView = false }
+        } message: {
+            Text("Time Out! Your score was \(gameModel.currentScore)")
+        }
+        .alert("Game Lost", isPresented: $showGameOverAlert) {
+            Button("Done") { showingView = false }
+        } message: {
+            Text("Game Lost! Your score was \(gameModel.currentScore)")
+        }
+        .alert("Game Won", isPresented: $showGameWonAlert) {
+            Button("Done") { showingView = false }
+        } message: {
+            Text("Game Won! Your score was \(gameModel.currentScore)")
         }
     }
 }

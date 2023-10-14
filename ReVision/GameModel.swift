@@ -30,7 +30,8 @@ class GameModel: ObservableObject, Identifiable {
         case notStarted = "Not Started",
              inProgress = "In Progress",
              timeOut = "Time Out",
-             lost = "Lost"
+             lost = "Lost",
+             won = "Won"
     }
     
     private static let maxTimeInSeconds: Int = 60
@@ -40,7 +41,7 @@ class GameModel: ObservableObject, Identifiable {
     private let allImages: [ImageModel.UserImage]
     
     private var timer: Timer?
-    private var currentScore = 0
+    private(set) var currentScore = 0
     private var imageSets: [ImageSet] = []
     private var currentImageSetIndex: Int = 0
     private var currentImageIndex = 0
@@ -97,13 +98,6 @@ class GameModel: ObservableObject, Identifiable {
             let imagesInSet = shuffledImages.prefix(Self.numberOfImagesInASet)
             let imageSet = ImageSet(imageSet: imagesInSet.shuffled(), correctImageIndex: Int.random(in: 0..<imagesInSet.count))
             if !imagesInSet.isEmpty {
-//                var name = ""
-//                DispatchQueue.main.async {
-//                    imageSet.imageSet[imageSet.correctImageIndex].assetData.location?.lookUpPlacemarkName {
-//                        name = $0?.name ?? "unknown"
-//                    }
-//                    imageSet.location = name
-//                }
                 imageSets.append(imageSet)
                 print("correct index: \(imageSet.correctImageIndex)")
             }
@@ -115,9 +109,15 @@ class GameModel: ObservableObject, Identifiable {
     private func moveToNextSet() {
         if currentImageSetIndex + 1 < imageSets.count {
             currentImageSetIndex += 1
+            currentScore += 1
         } else {
-            timeOut()
+            gameWon()
         }
+    }
+    
+    private func gameWon() {
+        currentGameState = .won
+        timer?.invalidate()
     }
     
     private func gameLost() {

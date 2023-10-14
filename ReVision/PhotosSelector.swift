@@ -28,7 +28,7 @@ struct PhotosSelector: View {
             gameModel = GameModel(images: newVal)
         }
         .fullScreenCover(isPresented: $showGameView) {
-            SinglePlayerGameView(gameModel: gameModel!)
+            SinglePlayerGameView(gameModel: gameModel!, showingView: $showGameView)
         }
     }
 }
