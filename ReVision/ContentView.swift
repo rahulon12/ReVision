@@ -66,7 +66,19 @@ struct ContentView: View {
             SinglePlayerGameView(gameModel: gameModel!, showingView: $showGameView)
         }
         .fullScreenCover(isPresented: $showARView) {
-            ARGameView(gameModel: gameModel!)
+            ZStack(alignment: .topLeading) {
+                ARGameView(gameModel: gameModel!)
+                
+                Button {
+                    showARView = false
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .padding()
+                        .imageScale(.large)
+                        .foregroundStyle(.thinMaterial)
+                        .font(.largeTitle)
+                }
+            }
         }
     }
 }
