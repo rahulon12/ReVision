@@ -21,6 +21,7 @@
 		B7DA3B6A2ADA5024000D5F34 /* ARGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA3B692ADA5024000D5F34 /* ARGameView.swift */; };
 		B7DA3B6C2ADA58BB000D5F34 /* PictureAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA3B6B2ADA58BA000D5F34 /* PictureAnchor.swift */; };
 		B7DA3B6E2ADAFF49000D5F34 /* AnimatedGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA3B6D2ADAFF49000D5F34 /* AnimatedGradient.swift */; };
+		B7DA3B702ADB130F000D5F34 /* SpringButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DA3B6F2ADB130F000D5F34 /* SpringButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		B7DA3B692ADA5024000D5F34 /* ARGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARGameView.swift; sourceTree = "<group>"; };
 		B7DA3B6B2ADA58BA000D5F34 /* PictureAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureAnchor.swift; sourceTree = "<group>"; };
 		B7DA3B6D2ADAFF49000D5F34 /* AnimatedGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedGradient.swift; sourceTree = "<group>"; };
+		B7DA3B6F2ADB130F000D5F34 /* SpringButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				B7DA3B552ADA00BF000D5F34 /* Persistence.swift */,
 				B7DA3B572ADA00BF000D5F34 /* ReVision.xcdatamodeld */,
 				B7DA3B522ADA00BF000D5F34 /* Preview Content */,
+				B7DA3B6F2ADB130F000D5F34 /* SpringButton.swift */,
 			);
 			path = ReVision;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				B7DA3B6C2ADA58BB000D5F34 /* PictureAnchor.swift in Sources */,
 				B7DA3B6A2ADA5024000D5F34 /* ARGameView.swift in Sources */,
 				B7DA3B682ADA36A3000D5F34 /* CLLocation+Landmarks.swift in Sources */,
+				B7DA3B702ADB130F000D5F34 /* SpringButton.swift in Sources */,
 				B7DA3B4D2ADA00BD000D5F34 /* ReVisionApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

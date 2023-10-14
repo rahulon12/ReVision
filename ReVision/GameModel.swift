@@ -43,6 +43,7 @@ class GameModel: ObservableObject, Identifiable {
     private var currentScore = 0
     private var imageSets: [ImageSet] = []
     private var currentImageSetIndex: Int = 0
+    private var currentImageIndex = 0
     
     @Published var timerCount = 0
     @Published var currentGameState: GameState = .notStarted
@@ -70,6 +71,19 @@ class GameModel: ObservableObject, Identifiable {
         }
     }
     
+    func indexOfImageToPlaceInAR() -> Int {
+        let indexToReturn = currentImageIndex
+        
+        currentImageIndex += 1
+        
+        if currentImageIndex >= imageSets[currentImageSetIndex].imageSet.count {
+            moveToNextSet()
+            currentImageIndex = 0
+        }
+        
+        return indexToReturn
+    }
+    
     // MARK: - Private
     private func resetGame() {
         imageSets.removeAll()
@@ -81,7 +95,7 @@ class GameModel: ObservableObject, Identifiable {
         var shuffledImages = allImages.shuffled()
         while !shuffledImages.isEmpty {
             let imagesInSet = shuffledImages.prefix(Self.numberOfImagesInASet)
-            var imageSet = ImageSet(imageSet: imagesInSet.shuffled(), correctImageIndex: Int.random(in: 0..<imagesInSet.count))
+            let imageSet = ImageSet(imageSet: imagesInSet.shuffled(), correctImageIndex: Int.random(in: 0..<imagesInSet.count))
             if !imagesInSet.isEmpty {
 //                var name = ""
 //                DispatchQueue.main.async {

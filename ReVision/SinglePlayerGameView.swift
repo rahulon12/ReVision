@@ -12,30 +12,45 @@ struct SinglePlayerGameView: View {
     @State private var location: String = ""
     
     var body: some View {
-        VStack {
-            Text("\(gameModel.timerCount)")
-            Text("State: \(gameModel.currentGameState.rawValue)")
-            Text("Index: \(gameModel.currentImageSet.correctImageIndex)")
-            
+        VStack(spacing: 36) {
             if gameModel.currentGameState == .inProgress {
-                Text("Location: \(location)")
-                
-//                LazyVGrid(columns: [.init(.fixed(200)), .init(.fixed(200))]) {
-//                    ForEach(gameModel.currentImageSet.imageSet) { userImage in
-//                        Image(uiImage: userImage.image)
-//                            .resizable()
-//                            .clipShape(RoundedRectangle(cornerRadius: 8.0))
-//                            .frame(width: 200, height: 200)
-//                            .overlay {
-//                                Text("\(gameModel.currentImageSet.imageSet.firstIndex(of: userImage) ?? 0)")
-//                            }
-//                            .onTapGesture {
-//                                print("tapped index \(gameModel.currentImageSet.imageSet.firstIndex(of: userImage))")
-//                                gameModel.didSelectImage(userImage)
-//                            }
-//                    }
-//                }
-                ARGameView(gameModel: gameModel)
+                VStack(spacing: 16) {
+                    HStack {
+                        Spacer()
+                        
+                        Text("\(gameModel.timerCount)")
+                            .font(.title2)
+                            .bold()
+                            .foregroundColor(.secondary)
+                            .monospaced()
+                        
+                        Spacer()
+                    }
+                    
+                    Text("Location:\n\(location)")
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(.blue)
+                        .monospaced()
+                        .lineLimit(2)
+                        .multilineTextAlignment(.center)
+                }
+                .padding()
+                                
+                LazyVGrid(columns: [.init(.fixed(175)), .init(.fixed(175))], spacing: 4) {
+                    ForEach(gameModel.currentImageSet.imageSet) { userImage in
+                        Button {
+                            gameModel.didSelectImage(userImage)
+                        } label: {
+                            Image(uiImage: userImage.image)
+                                .resizable()
+                                .clipShape(RoundedRectangle(cornerRadius: 8.0))
+                                .frame(width: 175, height: 175)
+                        }
+                        .buttonStyle(SpringButton())
+                    }
+                }
+                // ARGameView(gameModel: gameModel)
             }
             
             if gameModel.currentGameState == .notStarted {
@@ -56,8 +71,8 @@ struct SinglePlayerGameView: View {
     }
 }
 
-struct SinglePlayerGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        SinglePlayerGameView(gameModel: GameModel(images: []))
-    }
-}
+//struct SinglePlayerGameView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SinglePlayerGameView(gameModel: GameModel(images: []))
+//    }
+//}

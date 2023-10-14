@@ -54,20 +54,22 @@ class ARGameViewController: UIViewController, ARSessionDelegate {
         let raycastResults = arView.raycast(from: location, allowing: .estimatedPlane, alignment: .horizontal)
         if let firstResult = raycastResults.first {
             let anchor1 = PictureAnchor(name: "0", transform: alterTransform(firstResult.worldTransform, delta: 0))
-            anchor1.image = gameModel?.currentImageSet.imageSet[0].image
-            arView.session.add(anchor: anchor1)
-            
-            let anchor2 = PictureAnchor(name: "1", transform: alterTransform(firstResult.worldTransform, delta: 0.5))
-            anchor2.image = gameModel?.currentImageSet.imageSet[1].image
-            arView.session.add(anchor: anchor2)
-            
-            let anchor3 = PictureAnchor(name: "2", transform: alterTransform(firstResult.worldTransform, delta: 1))
-            anchor3.image = gameModel?.currentImageSet.imageSet[2].image
-            arView.session.add(anchor: anchor3)
-            
-            let anchor4 = PictureAnchor(name: "3", transform: alterTransform(firstResult.worldTransform, delta: 1.5))
-            anchor4.image = gameModel?.currentImageSet.imageSet[3].image
-            arView.session.add(anchor: anchor4)
+            if let indexOfImage = gameModel?.indexOfImageToPlaceInAR() {
+                anchor1.image = gameModel?.currentImageSet.imageSet[indexOfImage].image
+                arView.session.add(anchor: anchor1)
+            }
+//            
+//            let anchor2 = PictureAnchor(name: "1", transform: alterTransform(firstResult.worldTransform, delta: 0.5))
+//            anchor2.image = gameModel?.currentImageSet.imageSet[1].image
+//            arView.session.add(anchor: anchor2)
+//            
+//            let anchor3 = PictureAnchor(name: "2", transform: alterTransform(firstResult.worldTransform, delta: 1))
+//            anchor3.image = gameModel?.currentImageSet.imageSet[2].image
+//            arView.session.add(anchor: anchor3)
+//            
+//            let anchor4 = PictureAnchor(name: "3", transform: alterTransform(firstResult.worldTransform, delta: 1.5))
+//            anchor4.image = gameModel?.currentImageSet.imageSet[3].image
+//            arView.session.add(anchor: anchor4)
             
             print("Successfully added anchor")
         }
