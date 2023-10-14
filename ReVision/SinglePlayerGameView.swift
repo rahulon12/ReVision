@@ -58,7 +58,30 @@ struct SinglePlayerGameView: View {
             }
             
             if gameModel.currentGameState == .notStarted {
-                Button("Begin Game") { gameModel.beginGame() }
+                VStack {
+                    Text("Instructions")
+                        .font(.title)
+                        .bold()
+                        .underline()
+                        .foregroundColor(.black)
+                        .monospaced()
+                        .multilineTextAlignment(.center)
+                    Text("\n\nYou have 60 seconds for this challenge!")
+                        .font(.title2)
+                        .foregroundColor(.secondary)
+                        .monospaced()
+                        .multilineTextAlignment(.center)
+                    Text("\nWhen prompted with a location, select the perfect match from the image options provided.\n\n")
+                        .font(.title2)
+                        .foregroundColor(.secondary)
+                        .monospaced()
+                        .multilineTextAlignment(.center)
+                    Button("Begin Game") { gameModel.beginGame() }
+                        .frame(width: 300, height: 60)
+                        .bold()
+                        .tint(.black)
+                        .buttonStyle(.borderedProminent)
+                }
             }
         }
         .padding()

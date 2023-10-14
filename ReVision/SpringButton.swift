@@ -13,7 +13,7 @@ struct SpringButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .scaleEffect(scaleOffset)
-            .animation(.spring, value: scaleOffset)
+            .animation(.spring(), value: scaleOffset)
             .onChange(of: configuration.isPressed) { newValue in
                 if newValue { scaleOffset = 0.8 }
                 else { scaleOffset = 1 }
